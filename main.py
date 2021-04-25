@@ -1,3 +1,5 @@
+import random
+
 rock = '''
     _______
 ---'   ____)
@@ -24,4 +26,26 @@ scissors = '''
       (____)
 ---.__(___)
 '''
+
+game_images = [rock, paper, scissors]
+
+user_choice = int(input("Let´s play this game. What will you chose? Type 0 for Rock, 1 for Paper or 2 for Scissors.\n"))
+print(game_images[user_choice - 1])
+
+computer_choice = random.randint(0, 2)
+print("Computer chose:")
+print(game_images[computer_choice])
+
+if user_choice >= 3 or user_choice < 0: 
+  print("You typed an invalid number, try again!") 
+elif user_choice == 0 and computer_choice == 2:
+  print("Rock breaks scissors, you win!")
+elif computer_choice == 0 and user_choice == 2:
+  print("Rock breaks scissors, you lose")
+elif computer_choice > user_choice:
+  print("You lose")
+elif user_choice > computer_choice:
+  print("You win!")
+elif computer_choice == user_choice:
+  print("It's a tie, try again")
 
